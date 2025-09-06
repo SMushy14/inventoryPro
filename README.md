@@ -45,15 +45,15 @@ The primary entities that businesses need to track or manage and their attribute
 
 Main resources in **InventoryPro** API:
 
-| Resource       | Description                                           | Attributes                                                 | Data Type                                    | Relationships                       |
-| -------------- | ----------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------- | ----------------------------------- |
-| **Products**   | Items that can be purchased, sold, restocked          | productId, name, description, categoryId, price            | uuid, string, string, uuid, decimal          | Product - Category, Supplier, Stock |
-| **Categories** | Organizes products by type                            | categoryId, name, description                              | uuid, string, string                         | Product - Category                  |
-| **Suppliers**  | Supply products to vendors                            | supplierId, name, email, address                           | uuid, string, string, string                 | Product - Supplier                  |
-| **Stores**     | Fixed address locations holding stocks                | storeId, name, address                                     | uuid, string, string                         | Product - Store, Order - Store      |
-| **Stocks**     | Collection of different products available at a store | stockId, productId, storeId, quantity                      | uuid, uuid, uuid, integer                    | Product - Stock, Stock - Store      |
-| **Customers**  | Purchase products and make orders                     | customerId, name, email, address                           | uuid, string, string, string                 | Customer - Order                    |
-| **Orders**     | Requests for purchase or restocking                   | orderId, customerId, storeId, orderDate, amount, orderType | uuid, uuid, uuid, timestamp, decimal, string | Customer - Order, Order - Store     |
+| Resource | Description | Attributes | Data Type | Relationships |
+| :---- | :---- | :---- | :---- | :---- |
+| **Products** | Items that can be purchased, sold, restocked | productId, name, description, categoryId, price | uuid, string, string, uuid, decimal | Product - Category, Supplier, Stock |
+| **Categories** | Organizes products by type | categoryId, name, description | uuid, string, string | Product - Category |
+| **Suppliers**  | Supply products to vendors | supplierId, name, email, address | uuid, string, string, string | Product - Supplier |
+| **Stores** | Fixed address locations holding stocks | storeId, name, address | uuid, string, string | Product - Store, Order - Store |
+| **Stocks** | Collection of different products available at a store | stockId, productId, storeId, quantity | uuid, uuid, uuid, integer | Product - Stock, Stock - Store |
+| **Customers** | Purchase products and make orders | customerId, name, email, address | uuid, string, string, string | Customer - Order |
+| **Orders** | Requests for purchase or restocking | orderId, customerId, storeId, orderDate, amount, orderType | uuid, uuid, uuid, timestamp, decimal, string | Customer - Order, Order - Store |
 
 ## Endpoint Documentation
 
