@@ -2,11 +2,11 @@
 
 ## Executive Summary
 
-InventoryPro is an inventory management system designed for African retail businesses, tracking products, categories, suppliers, and stock levels across multiple store locations. Retail businesses like Jumia and sole proprietorships (small businesses owned by individuals) need an inventory management system to ensure the right amount of products in the right locations. This system helps in demand forecasting to avoid overstocking, understocking, and manage cash flow in their businesses.
+**InventoryPro** is an inventory management system designed for African retail businesses, tracking products, categories, suppliers, and stock levels across multiple store locations. Retail businesses like Jumia and sole proprietorships (small businesses owned by individuals) need an inventory management system to ensure the right amount of products in the right locations. This system helps in demand forecasting to avoid overstocking, understocking, and manage cash flow in their businesses.
 
 ## Business Domain Analysis
 
-InventoryPro API supports different functions in the system, such as creating, updating, deleting, and retrieving information.
+**InventoryPro** API supports different functions in the system, such as creating, updating, deleting, and retrieving information.
 
 ### Primary Business Entities
 
@@ -31,7 +31,7 @@ The primary entities that businesses need to track or manage and their attribute
 - **Order - Product**: Many-to-many; a product can be in multiple orders, and orders can include many products.
 - **Order - Store**: One-to-many; each order is unique to a specific store.
 
-### API Supports Critical Business Operations:
+### InventoryPro API Supports Critical Business Operations like:
 
 - Adding, fetching, updating, and deleting product information
 - Stock management
@@ -43,7 +43,7 @@ The primary entities that businesses need to track or manage and their attribute
 
 ## Resource Architecture Design
 
-Main resources in InventoryPro API:
+Main resources in **InventoryPro** API:
 
 | Resource       | Description                                           | Attributes                                                 | Data Type                                    | Relationships                       |
 | -------------- | ----------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------- | ----------------------------------- |
@@ -59,7 +59,7 @@ Main resources in InventoryPro API:
 
 | Resource     | Action                      | HTTP Method | URI                   | Request Body                                                                             | Success Response                                                                                     | Error Response                                       |
 | ------------ | --------------------------- | ----------- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **Products** | Create/Add new product      | POST        | /products             | { productId: uuid, name: string, description: string, categoryId: uuid, price: decimal } | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| **Products** | Create/Add new product      | POST        | /products             | json```{ productId: uuid, name: string, description: string, categoryId: uuid, price: decimal }```json | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
 |              | List all products           | GET         | /products             |                                                                                          | 200 List Products                                                                                    | 400 Bad Request                                      |
 |              | Update product info         | PATCH       | /products/{productId} |                                                                                          | 200 Updated Product                                                                                  | 400, 404 Not Found                                   |
 |              | Delete product              | DELETE      | /products/{productId} |                                                                                          | 204 Deleted Product                                                                                  | 400, 404 Not Found                                   |
