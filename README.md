@@ -59,7 +59,13 @@ Main resources in **InventoryPro** API:
 
 | Resource | Action | HTTP Method | URI | Request Body | Success Response | Error Response |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Create/Add new product | POST | /products | ```{<br>productId: uuid,<br>name: string,<br>description: string,<br>categoryId: uuid,<br>price: decimal<br>}``` | 201 Created Product<br>200 List Product<br>200 Updated Product<br>204 Deleted Product<br>200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| **Products** | Create/Add new product | POST | /products | ```json{
+"productId": uuid,
+"name": string,
+"description": string,
+"categoryId": uuid,
+"price": decimal
+}``` | 201 Created Product<br>200 List Product<br>200 Updated Product<br>204 Deleted Product<br>200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
 | | List all products | GET | /products | | 200 List Products | 400 Bad Request |
 | | Update product info | PATCH | /products/{productId} | | 200 Updated Product | 400, 404 Not Found |
 | | Delete product | DELETE | /products/{productId} | | 204 Deleted Product | 400, 404 Not Found |
