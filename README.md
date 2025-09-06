@@ -121,3 +121,15 @@ Main resources in **InventoryPro** API:
 ## Design Rationale
 
 This API design can be adjusted to meet the demands of all types of businesses, large or small. This includes features like currency support for different countries, additional endpoints like receipts and tax, and actions that confirm order status such as approved, completed, canceled, and ongoing.
+testing
+
+| Resource | Request Body |
+|----------|--------------|
+| Product  | See example below |
+
+```json
+{
+  "productId": "uuid",
+  "name": "string",
+  "price": "decimal"
+}
