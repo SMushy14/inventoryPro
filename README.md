@@ -47,11 +47,7 @@ Main resources in **InventoryPro** API:
 
 | Resource | Description | Attributes | Data Type | Relationships |
 | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Items that can be purchased, sold and restocked | productId  
-name  
-description  
-categoryId
-price | uuid, string, string, uuid, decimal | Product - Category, Supplier, Stock |
+| **Products** | Items that can be purchased, sold and restocked | productId name description categoryId price | uuid, string, string, uuid, decimal | Product - Category, Supplier, Stock |
 | **Categories** | Organizes products by type | categoryId, name, description | uuid, string, string | Product - Category |
 | **Suppliers**  | Supply products to vendors | supplierId, name, email, address | uuid, string, string, string | Product - Supplier |
 | **Stores** | Fixed address locations holding stocks | storeId, name, address | uuid, string, string | Product - Store, Order - Store |
@@ -61,13 +57,13 @@ price | uuid, string, string, uuid, decimal | Product - Category, Supplier, Stoc
 
 ## Endpoint Documentation
 
-| Resource     | Action                      | HTTP Method | URI                   | Request Body                                                                             | Success Response                                                                                     | Error Response                                       |
-| ------------ | --------------------------- | ----------- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **Products** | Create/Add new product      | POST        | /products             | ```json { productId: uuid, name: string, description: string, categoryId: uuid, price: decimal }``` | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
-|              | List all products           | GET         | /products             |                                                                                          | 200 List Products                                                                                    | 400 Bad Request                                      |
-|              | Update product info         | PATCH       | /products/{productId} |                                                                                          | 200 Updated Product                                                                                  | 400, 404 Not Found                                   |
-|              | Delete product              | DELETE      | /products/{productId} |                                                                                          | 204 Deleted Product                                                                                  | 400, 404 Not Found                                   |
-|              | Read single product details | GET         | /products/{productId} |                                                                                          | 200 Product Details                                                                                  | 400, 404 Not Found                                   |
+| Resource | Action | HTTP Method | URI | Request Body | Success Response | Error Response |
+| :---- | :---- | :---- | :---- | :---- | :---- | :---- |
+| **Products** | Create/Add new product | POST | /products | ```json { productId: uuid, name: string, description: string, categoryId: uuid, price: decimal }``` | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| | List all products | GET | /products | | 200 List Products | 400 Bad Request |
+| | Update product info | PATCH | /products/{productId} | | 200 Updated Product | 400, 404 Not Found |
+| | Delete product | DELETE | /products/{productId} | | 204 Deleted Product | 400, 404 Not Found |
+| | Read single product details | GET | /products/{productId} | | 200 Product Details | 400, 404 Not Found |
 
 | **Categories** | Create a new category | POST | /categories | { categoryId: uuid, name: string, description: string } | 201 Created Category | 400 Bad Request, 404 Not Found |
 | | List all categories | GET | /categories | | 200 List Categories | 400 Bad Request |
