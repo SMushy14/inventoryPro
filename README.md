@@ -47,9 +47,9 @@ Main resources in **InventoryPro** API:
 
 | Resource | Description | Attributes | Data Type | Relationships |
 | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Items that can be purchased, sold and restocked | productId name description categoryId price | uuid, string, string, uuid, decimal | Product - Category, Supplier, Stock |
-| **Categories** | Organizes products by type | categoryId, name, description | uuid, string, string | Product - Category |
-| **Suppliers**  | Supply products to vendors | supplierId, name, email, address | uuid, string, string, string | Product - Supplier |
+| **Products** | Items that can be purchased, sold and restocked | productId<br>name<br>description<br>categoryId<br>price | uuid<br>string<br>string<br>uuid<br>decimal | Product - Category, Supplier, Stock |
+| **Categories** | Organizes products by type | categoryId<br>name<br>description | uuid<br>string<br>string | Product - Category |
+| **Suppliers**  | Supply products to vendors | supplierId<br>name, email, address | uuid, string, string, string | Product - Supplier |
 | **Stores** | Fixed address locations holding stocks | storeId, name, address | uuid, string, string | Product - Store, Order - Store |
 | **Stocks** | Collection of different products available at a store | stockId, productId, storeId, quantity | uuid, uuid, uuid, integer | Product - Stock, Stock - Store |
 | **Customers** | Purchase products and make orders | customerId, name, email, address | uuid, string, string, string | Customer - Order |
