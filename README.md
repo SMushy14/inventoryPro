@@ -12,15 +12,15 @@
 
 The primary entities that businesses need to track or manage and their attributes are:
 
-| Entity              | Attributes                                                                   |
-| ------------------- | ---------------------------------------------------------------------------- |
-| **Product**         | product_id (Primary Key), name, description, category_id, price, supplier_id |
-| **Stock/Inventory** | stock_id, product_id, store_id, quantity, address                            |
-| **Category**        | category_id, name, description                                               |
-| **Supplier**        | supplier_id, name, email, address                                            |
-| **Customer**        | customer_id, name, email, address                                            |
-| **Store**           | store_id, name, address                                                      |
-| **Order**           | order_id, order_date, customer_id, store_id, amount, order_type              |
+| Entity | Attributes |
+| :---- | :---- |
+| **Product** | product_id (Primary Key)<br>name<br>description<br>category_id<br>price<br>supplier_id |
+| **Stock/Inventory** | stock_id<br>product_id, store_id, quantity, address |
+| **Category** | category_id<br>name<br>description |
+| **Supplier** | supplier_id<br>name<br>email<br>address |
+| **Customer** | customer_id<br>name<br>email<br>address |
+| **Store** | store_id<br>name<br>address |
+| **Order** | order_id<br>order_date<br>customer_id<br>store_id<br>amount<br>order_type |
 
 ### Relationships Between Entities
 
@@ -59,43 +59,37 @@ Main resources in **InventoryPro** API:
 
 | Resource | Action | HTTP Method | URI | Request Body | Success Response | Error Response |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Create/Add new product | POST | /products | ```json{
-"productId": uuid,
-"name": string,
-"description": string,
-"categoryId": uuid,
-"price": decimal
-}``` | 201 Created Product<br>200 List Product<br>200 Updated Product<br>204 Deleted Product<br>200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| **Products** | Create/Add new product | POST | /products | ```{"productId": uuid, "name": string, "description": string, "categoryId": uuid, "price": decimal}``` | 201 Created Product<br>200 List Product<br>200 Updated Product<br>204 Deleted Product<br>200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
 | | List all products | GET | /products | | 200 List Products | 400 Bad Request |
 | | Update product info | PATCH | /products/{productId} | | 200 Updated Product | 400, 404 Not Found |
 | | Delete product | DELETE | /products/{productId} | | 204 Deleted Product | 400, 404 Not Found |
 | | Read single product details | GET | /products/{productId} | | 200 Product Details | 400, 404 Not Found |
-| **Categories** | Create a new category | POST | /categories | { categoryId: uuid, name: string, description: string } | 201 Created Category | 400 Bad Request, 404 Not Found |
+| **Categories** | Create a new category | POST | /categories | ```{ categoryId: uuid, name: string, description: string }``` | 201 Created Category | 400 Bad Request, 404 Not Found |
 | | List all categories | GET | /categories | | 200 List Categories | 400 Bad Request |
 | | Update a single category | PATCH | /categories/{categoryId} | | 200 Updated Category | 400, 404 Not Found |
 | | Retrieve details of category | GET | /categories/{categoryId} | | 200 Category Details | 400, 404 Not Found |
 | | Delete a single category | DELETE | /categories/{categoryId} | | 204 Deleted Category | 400, 404 Not Found |
-| **Suppliers** | Add a new supplier | POST | /suppliers | { supplierId: uuid, name: string, email: string, address: string } | 201 Added Supplier | 400 Bad Request, 404 Not Found |
+| **Suppliers** | Add a new supplier | POST | /suppliers | ```{ supplierId: uuid, name: string, email: string, address: string }``` | 201 Added Supplier | 400 Bad Request, 404 Not Found |
 | | List all suppliers | GET | /suppliers | | 200 List Suppliers | 400 Bad Request |
 | | Delete a single supplier | DELETE | /suppliers/{supplierId} | | 204 Deleted Supplier | 400, 404 Not Found |
 | | Retrieve details of supplier | GET | /suppliers/{supplierId} | | 200 Supplier Details | 400, 404 Not Found |
 | | Update supplier details | PATCH | /suppliers/{supplierId} | | 200 Updated Supplier Details | 400, 404 Not Found |
-| **Stores** | Add a new store | POST | /stores | { storeId: uuid, name: string, address: string } | 201 Added Store | 400 Bad Request, 404 Not Found |
+| **Stores** | Add a new store | POST | /stores | ```{ storeId: uuid, name: string, address: string }``` | 201 Added Store | 400 Bad Request, 404 Not Found |
 | | Delete a single store | DELETE | /stores/{storeId} | | 204 Deleted Store | 400, 404 Not Found |
 | | Update store details | PUT | /stores/{storeId} | | 200 Updated Store Details | 400, 404 Not Found |
 | | List all stores | GET | /stores | | 200 List Stores | 400 Bad Request |
 | | Details of a single store | GET | /stores/{storeId} | | 200 Store Details | 400, 404 Not Found |
-| **Stocks** | Create new stock/inventory | POST | /stocks | { stockId: uuid, productId: uuid, storeId: uuid, quantity: integer } | 201 Created Stock | 400 Bad Request, 404 Not Found |
+| **Stocks** | Create new stock/inventory | POST | /stocks | ```{ stockId: uuid, productId: uuid, storeId: uuid, quantity: integer }``` | 201 Created Stock | 400 Bad Request, 404 Not Found |
 | | Read products available in stock | GET | /stocks | | 200 List Products in Stock | 400 Bad Request |
 | | Details of single product in stock | GET | /stocks/{stockId} | | 200 Stock Details | 400, 404 Not Found |
 | | Delete stock | DELETE | /stock/{stockId} | | 204 Deleted Stock | 400, 404 Not Found |
 | | Update stock details | PATCH | /stock/{stockId} | | 200 Updated Stock Details | 400, 404 Not Found |
-| **Customers** | Create a new customer | POST | /customers | { customerId: uuid, name: string, email: string, address: string } | 201 Created Customer | 400 Bad Request, 404 Not Found |
+| **Customers** | Create a new customer | POST | /customers | ```{ customerId: uuid, name: string, email: string, address: string }``` | 201 Created Customer | 400 Bad Request, 404 Not Found |
 | | Update customer details | PATCH | /customers/{customerId} | | 200 Updated Customer Details | 400, 404 Not Found |
 | | Delete customer | DELETE | /customer/{customerId} | | 204 Deleted Customer | 400, 404 Not Found |
 | | Retrieve customer details | GET | /customers/{customerId} | | 200 Customer Details | 400, 404 Not Found |
 | | List all customers | GET | /customers | | 200 List Customers | 400 Bad Request |
-| **Orders** | Create a new order | POST | /orders | { orderId: uuid, customerId: uuid, storeId: uuid, orderDate: timestamp, amount: decimal, orderType: string } | 201 Created Order | 400 Bad Request, 404 Not Found |
+| **Orders** | Create a new order | POST | /orders | ```{ orderId: uuid, customerId: uuid, storeId: uuid, orderDate: timestamp, amount: decimal, orderType: string }``` | 201 Created Order | 400 Bad Request, 404 Not Found |
 | | Update order details | PUT | /orders/{orderId} | | 200 Updated Order Details | 400, 404 Not Found |
 | | Delete order | DELETE | /order/{orderId} | | 204 Deleted Order | 400, 404 Not Found |
 | | Update order location | PATCH | /order/{orderId} | | 200 Order Location | 400, 404 Not Found |
@@ -121,15 +115,3 @@ Main resources in **InventoryPro** API:
 ## Design Rationale
 
 This API design can be adjusted to meet the demands of all types of businesses, large or small. This includes features like currency support for different countries, additional endpoints like receipts and tax, and actions that confirm order status such as approved, completed, canceled, and ongoing.
-testing
-
-| Resource | Request Body |
-|----------|--------------|
-| Product  | See example below |
-
-```json
-{
-  "productId": "uuid",
-  "name": "string",
-  "price": "decimal"
-}
