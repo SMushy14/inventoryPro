@@ -115,3 +115,7 @@ Main resources in **InventoryPro** API:
 ## Design Rationale
 
 This API design can be adjusted to meet the demands of all types of businesses, large or small. This includes features like currency support for different countries, additional endpoints like receipts and tax, and actions that confirm order status such as approved, completed, canceled, and ongoing.
+
+
+## AI usage
+I used AI to research more about Inventory Management System. Also to find the difference between a business entity and resource.
