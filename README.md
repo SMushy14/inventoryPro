@@ -49,17 +49,17 @@ Main resources in **InventoryPro** API:
 | :---- | :---- | :---- | :---- | :---- |
 | **Products** | Items that can be purchased, sold and restocked | productId<br>name<br>description<br>categoryId<br>price | uuid<br>string<br>string<br>uuid<br>decimal | Product - Category, Supplier, Stock |
 | **Categories** | Organizes products by type | categoryId<br>name<br>description | uuid<br>string<br>string | Product - Category |
-| **Suppliers**  | Supply products to vendors | supplierId<br>name, email, address | uuid, string, string, string | Product - Supplier |
-| **Stores** | Fixed address locations holding stocks | storeId, name, address | uuid, string, string | Product - Store, Order - Store |
-| **Stocks** | Collection of different products available at a store | stockId, productId, storeId, quantity | uuid, uuid, uuid, integer | Product - Stock, Stock - Store |
-| **Customers** | Purchase products and make orders | customerId, name, email, address | uuid, string, string, string | Customer - Order |
-| **Orders** | Requests for purchase or restocking | orderId, customerId, storeId, orderDate, amount, orderType | uuid, uuid, uuid, timestamp, decimal, string | Customer - Order, Order - Store |
+| **Suppliers**  | Supply products to vendors | supplierId<br>name<br>email<br>address | uuid<br>string<br>string<br>string | Product - Supplier |
+| **Stores** | Fixed address locations holding stocks | storeId<br>name<br>address | uuid<br>string<br>string | Product - Store, Order - Store |
+| **Stocks** | Collection of different products available at a store | stockId<br>productId<br>storeId<br>quantity | uuid<br>uuid<br>uuid<br>integer | Product - Stock, Stock - Store |
+| **Customers** | Purchase products and make orders | customerId<br>name<br>email<br>address | uuid<br>string<br>string<br>string | Customer - Order |
+| **Orders** | Requests for purchase or restocking | orderId<br>customerId<br>storeId<br>orderDate<br>amount<br>orderType | uuid<br>uuid<br>uuid<br>timestamp<br>decimal<br>string | Customer - Order, Order - Store |
 
 ## Endpoint Documentation
 
 | Resource | Action | HTTP Method | URI | Request Body | Success Response | Error Response |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Create/Add new product | POST | /products | ```{ productId: uuid,  name: string,  description: string,  categoryId: uuid,  price: decimal }``` | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| **Products** | Create/Add new product | POST | /products | ```{<br>productId: uuid,<br>name: string,<br>description: string,<br>categoryId: uuid,<br>price: decimal<br>}``` | 201 Created Product<br>200 List Product<br>200 Updated Product<br>204 Deleted Product<br>200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
 | | List all products | GET | /products | | 200 List Products | 400 Bad Request |
 | | Update product info | PATCH | /products/{productId} | | 200 Updated Product | 400, 404 Not Found |
 | | Delete product | DELETE | /products/{productId} | | 204 Deleted Product | 400, 404 Not Found |
@@ -98,7 +98,7 @@ Main resources in **InventoryPro** API:
 
 ## Advanced Features
 
-- Filtering and searching products by category, supplier, store, or stock availability:
+- **Filtering and searching** products by category, supplier, store, or stock availability:
   - `GET /products/categories`
   - `GET /products/suppliers`
   - `GET /products/stores`
@@ -109,7 +109,7 @@ Main resources in **InventoryPro** API:
   - `GET /products/{supplierId}`
 - Listing stocks for certain stores:
   - `GET /stores/{storeId}/stocks`
-- Bulk operations such as deleting all products in a store:
+- **Bulk operations** such as deleting all products in a store:
   - `DELETE /stores/{storeId}/products`
 
 ## Design Rationale
