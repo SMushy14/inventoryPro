@@ -59,7 +59,7 @@ Main resources in **InventoryPro** API:
 
 | Resource | Action | HTTP Method | URI | Request Body | Success Response | Error Response |
 | :---- | :---- | :---- | :---- | :---- | :---- | :---- |
-| **Products** | Create/Add new product | POST | /products | ```json { productId: uuid, name: string, description: string, categoryId: uuid, price: decimal }``` | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
+| **Products** | Create/Add new product | POST | /products | ```{ productId: uuid,  name: string,  description: string,  categoryId: uuid,  price: decimal }``` | 201 Created Product, 200 List Product, 200 Updated Product, 204 Deleted Product, 200 Product Details | 400 Bad Request, 400/404 Not Found, 401 Unauthorized |
 | | List all products | GET | /products | | 200 List Products | 400 Bad Request |
 | | Update product info | PATCH | /products/{productId} | | 200 Updated Product | 400, 404 Not Found |
 | | Delete product | DELETE | /products/{productId} | | 204 Deleted Product | 400, 404 Not Found |
@@ -84,13 +84,11 @@ Main resources in **InventoryPro** API:
 | | Details of single product in stock | GET | /stocks/{stockId} | | 200 Stock Details | 400, 404 Not Found |
 | | Delete stock | DELETE | /stock/{stockId} | | 204 Deleted Stock | 400, 404 Not Found |
 | | Update stock details | PATCH | /stock/{stockId} | | 200 Updated Stock Details | 400, 404 Not Found |
-
 | **Customers** | Create a new customer | POST | /customers | { customerId: uuid, name: string, email: string, address: string } | 201 Created Customer | 400 Bad Request, 404 Not Found |
 | | Update customer details | PATCH | /customers/{customerId} | | 200 Updated Customer Details | 400, 404 Not Found |
 | | Delete customer | DELETE | /customer/{customerId} | | 204 Deleted Customer | 400, 404 Not Found |
 | | Retrieve customer details | GET | /customers/{customerId} | | 200 Customer Details | 400, 404 Not Found |
 | | List all customers | GET | /customers | | 200 List Customers | 400 Bad Request |
-
 | **Orders** | Create a new order | POST | /orders | { orderId: uuid, customerId: uuid, storeId: uuid, orderDate: timestamp, amount: decimal, orderType: string } | 201 Created Order | 400 Bad Request, 404 Not Found |
 | | Update order details | PUT | /orders/{orderId} | | 200 Updated Order Details | 400, 404 Not Found |
 | | Delete order | DELETE | /order/{orderId} | | 204 Deleted Order | 400, 404 Not Found |
